@@ -1,7 +1,7 @@
 ### Hexagonal Architectura - .NET - Cheatsheet
 ---
 
-### **1. Estructura de Carpetas**
+### **1. Estructura de carpetas**
 La estructura de carpetas sigue las capas de Clean Architecture:
 
 ```
@@ -30,9 +30,9 @@ src/
 
 ---
 
-### **2. Paso a Paso Completo**
+### **2. Paso a paso completo**
 
-#### **2.1. Crear el Proyecto**
+#### **2.1. Crear el proyecto**
 1. Crea una solución en .NET:
    ```bash
    dotnet new sln -n CleanArchitectureDemo
@@ -77,7 +77,7 @@ src/
    }
    ```
 
-2. **Interfaz del Repositorio** (`Core/Interfaces/IProductRepository.cs`):
+2. **Interfaz del repositorio** (`Core/Interfaces/IProductRepository.cs`):
    ```csharp
    using Core.Entities;
 
@@ -93,7 +93,7 @@ src/
    }
    ```
 
-3. **Interfaz del Servicio Externo** (`Core/Interfaces/IExternalApiService.cs`):
+3. **Interfaz del servicio externo** (`Core/Interfaces/IExternalApiService.cs`):
    ```csharp
    namespace Core.Interfaces;
 
@@ -104,7 +104,7 @@ src/
    }
    ```
 
-4. **Use Case para Obtener Productos** (`Core/UseCases/GetAllProductsUseCase.cs`):
+4. **Use Case para obtener productos** (`Core/UseCases/GetAllProductsUseCase.cs`):
    ```csharp
    using Core.Entities;
    using Core.Interfaces;
@@ -127,7 +127,7 @@ src/
    }
    ```
 
-5. **Use Case para Consumir API Externa** (`Core/UseCases/ConsumeExternalApiUseCase.cs`):
+5. **Use Case para consumir API externa** (`Core/UseCases/ConsumeExternalApiUseCase.cs`):
    ```csharp
    using Core.Interfaces;
 
@@ -167,7 +167,7 @@ src/
    }
    ```
 
-2. **Implementación del Repositorio** (`Infrastructure/Repositories/ProductRepository.cs`):
+2. **Implementación del repositorio** (`Infrastructure/Repositories/ProductRepository.cs`):
    ```csharp
    using Core.Entities;
    using Core.Interfaces;
@@ -219,7 +219,7 @@ src/
    }
    ```
 
-3. **Implementación del Servicio Externo** (`Infrastructure/Services/ExternalApiService.cs`):
+3. **Implementación del servicio externo** (`Infrastructure/Services/ExternalApiService.cs`):
    ```csharp
    using System.Net.Http;
    using System.Text.Json;
@@ -291,7 +291,7 @@ src/
    }
    ```
 
-3. **Query para Obtener Todos los Productos** (`Application/Queries/GetAllProductsQuery.cs`):
+3. **Query para Obtener todos los productos** (`Application/Queries/GetAllProductsQuery.cs`):
    ```csharp
    using MediatR;
    using Application.DTOs;
@@ -331,7 +331,7 @@ src/
    }
    ```
 
-5. **Command para Crear un Producto** (`Application/Commands/CreateProductCommand.cs`):
+5. **Command para crear un producto** (`Application/Commands/CreateProductCommand.cs`):
    ```csharp
    using MediatR;
    using Application.DTOs;
@@ -391,7 +391,7 @@ src/
 ---
 
 #### **2.5. Configurar WebAPI**
-1. **Controlador de Productos** (`WebAPI/Controllers/ProductController.cs`):
+1. **Controlador de productos** (`WebAPI/Controllers/ProductController.cs`):
    ```csharp
    using Microsoft.AspNetCore.Mvc;
    using MediatR;
@@ -430,7 +430,7 @@ src/
    }
    ```
 
-2. **Controlador para Consumir API Externa** (`WebAPI/Controllers/ExternalApiController.cs`):
+2. **Controlador para consumir API Externa** (`WebAPI/Controllers/ExternalApiController.cs`):
    ```csharp
    using Microsoft.AspNetCore.Mvc;
    using MediatR;
@@ -459,7 +459,7 @@ src/
    }
    ```
 
-3. **Configuración de Servicios** (`WebAPI/Extensions/ServiceCollectionExtensions.cs`):
+3. **Configuración de servicios** (`WebAPI/Extensions/ServiceCollectionExtensions.cs`):
    ```csharp
    using AutoMapper;
    using FluentValidation;
